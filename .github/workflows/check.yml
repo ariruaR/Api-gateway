@@ -25,4 +25,16 @@ jobs:
 
       - name: Build docker image
         run: |
-          docker build . -t practice-ebbo-api
+          docker build . -t api-gateway
+  deploy:
+    needs: [docker_build]
+    runs-on: self-hosted
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy FastAPI
+        run: |
+          cd /home/server/Desktop/Api-gateway
+          git pull
+          docker run -p 8080:8080 api-gateway
