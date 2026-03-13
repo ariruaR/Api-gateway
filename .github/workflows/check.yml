@@ -15,7 +15,7 @@ jobs:
           python -m venv venv
           source venv/bin/activate
           pip install -r req.txt
-          pytest -vv test.py
+          pytest -vv src/test.py
 
   docker_build:
     needs: [test]
