@@ -16,23 +16,15 @@ jobs:
           source venv/bin/activate
           pip install -r req.txt
           pytest -vv src/test.py
-
-  docker_build:
-    needs: [test]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Build docker image
-        run: |
-          docker build . -t api-gateway
   deploy:
-    needs: [docker_build]
+    needs: [test]
     runs-on: self-hosted
 
     steps:
       - uses: actions/checkout@v4
-
+      - name: Build docker image
+        run: |
+          docker build . -t api-gateway
       - name: Deploy FastAPI
         run: |
           cd /home/server/Desktop/Api-gateway
