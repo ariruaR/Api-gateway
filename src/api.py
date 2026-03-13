@@ -16,6 +16,7 @@ async def root():
     return {"message": "Hello from FastAPI!"}
 
 
+
 @app.get("/ping")
 async def ping():
     """
@@ -23,7 +24,7 @@ async def ping():
     """
     return {"status": "ok"}
 
-@app.get(f"/v2x/{id}")
+@app.get("/v2x/{id}")
 async def get_v2x(id: int):
     """
     Получение v2x по id.
