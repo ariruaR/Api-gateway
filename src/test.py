@@ -22,7 +22,7 @@ def test_ping():
     assert data.get("status") == "ok"
 
 def test_v2x():
-    response = client.get("/v2x/{id}")
+    response = client.get("/v2x/1")
     assert response.status_code == 200
     data = response.json()
     assert isinstance(data, dict)
