@@ -23,6 +23,13 @@ async def ping():
     """
     return {"status": "ok"}
 
+@app.get(f"/v2x/{id}")
+async def get_v2x(id: int):
+    """
+    Получение v2x по id.
+    """
+    return {"status": "test", "id": id}
+
 
 # Для локального запуска:
 # uvicorn Practice_EBBO.api:app --reload
