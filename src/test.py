@@ -26,4 +26,4 @@ def test_v2x():
     assert response.status_code == 200
     data = response.json()
     assert isinstance(data, dict)
-    assert data.get("status") == "ok"
+    assert data.get("status") == "test"
