@@ -1,0 +1,28 @@
+name: Check
+on: push
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Tests
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+          pip install -r req.txt
+          pytest -vv src/test.py
+
+  # docker_build:
+  #   needs: [test]
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+
+  #     - name: Build docker image
+  #       run: |
+  #         docker build . -t practice-ebbo-api
