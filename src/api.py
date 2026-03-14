@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from starlette.status import HTTP_200_OK
 
 # Создаем экземпляр приложения FastAPI
 app = FastAPI(
@@ -31,6 +32,13 @@ async def get_v2x(id: int):
     """
     return {"status": "test", "id": id}
 
+@app.get('/datchik/{type}/{is_active}')
+async def get_datchik(type: str, is_active: bool):
+    return {
+        'status': HTTP_200_OK,
+        'type': type,
+        'is_active': is_active
+    }
 
 # Для локального запуска:
 # uvicorn Practice_EBBO.api:app --reload
