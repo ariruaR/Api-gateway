@@ -27,3 +27,10 @@ def test_v2x():
     data = response.json()
     assert isinstance(data, dict)
     assert data.get("status") == "test"
+
+def test_datchik():
+    response = client.get("/datchik/lidar/true")
+    assert response.status_code == 200
+    data = response.json()
+    assert isinstance(data, dict)
+    assert data.get("type") == "lidar"
