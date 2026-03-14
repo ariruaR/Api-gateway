@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from starlette.status import HTTP_200_OK
 
 # Создаем экземпляр приложения FastAPI
 app = FastAPI(
@@ -30,6 +31,8 @@ async def get_v2x(id: int):
     Получение v2x по id.
     """
     return {"status": "test", "id": id}
+
+
 
 
 # Для локального запуска:
