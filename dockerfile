@@ -11,7 +11,7 @@ COPY req.txt .
 
 
 
-RUN pip install --no-cache-dir -r req.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 # потом код приложения
 COPY . .
